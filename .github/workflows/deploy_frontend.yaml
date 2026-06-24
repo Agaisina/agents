@@ -1,7 +1,7 @@
 name: Deploy Frontend to HF
 on:
   push:
-    branches: ["feature/release"]
+    branches: ["release"]
     paths:
       - 'src/frontend/**'
       - '.github/workflows/**'
