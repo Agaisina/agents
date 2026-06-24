@@ -1,0 +1,29 @@
+name: Deploy Backend to HF
+on:
+  push:
+    branches: ["feature/release"]
+    paths:
+      - 'src/api/**'
+      - 'src/agents/**'
+      - 'src/workflow/**'
+      - 'Dockerfile'
+      - 'settings.yaml'
+      - 'requirements.txt'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Instalar Hugging Face CLI
+        run: pip install -U "huggingface_hub[cli]"
+
+      - name: Subir al Space (BACKEND)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          hf upload agaisina/agents . . --repo-type space --token $HF_TOKEN

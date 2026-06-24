@@ -1,0 +1,53 @@
+# Python
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.manifest
+*.spec
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+env/
+
+# pipenv
+Pipfile.lock
+
+# pytest
+.cache/
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# Local project files
+*.sqlite3
+*.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Ignore notebook outputs
+**/.ipynb_checkpoints
+
+# Ignore data generated during test runs
+*.tmp
+
+# Optional: ignore local secrets or credentials
+.env
+.env.*
+
+# Vector database files
+*.vectorstore

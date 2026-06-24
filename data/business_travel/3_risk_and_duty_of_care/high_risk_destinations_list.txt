@@ -1,0 +1,10 @@
+VERITAS CORPORATE - DUTY OF CARE: HIGH-RISK DESTINATIONS
+
+Corporate safety is our top priority. Travel to the following regions is restricted due to geopolitical instability, extreme weather, or medical risks:
+
+TIER 3 RESTRICTED AREAS (Requires explicit CEO and Security Team approval):
+- Ukraine, Russia, Belarus.
+- Middle East conflict zones (Syria, Yemen, Iraq).
+- Certain regions in Sub-Saharan Africa.
+
+If an employee requests travel to a Tier 3 area, the booking system MUST automatically reject the request and redirect the employee to the Corporate Security portal.
