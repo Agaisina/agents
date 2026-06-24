@@ -1,0 +1,21 @@
+name: Deploy to Hugging Face
+on:
+  push:
+    branches: ["feature/release"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Instalar Hugging Face CLI
+        run: pip install -U "huggingface_hub[cli]"
+
+      - name: Subir al Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          hf upload agaisina/agents . . --repo-type space --token $HF_TOKEN

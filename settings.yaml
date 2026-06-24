@@ -1,0 +1,75 @@
+# ==========================================
+# GLOBAL SETTINGS
+# ==========================================
+
+default:
+  directories:
+    data_dir: "data/business_travel"
+
+  collections:
+  - name: "te_policies_compliance"
+    data_dir: "data/business_travel/1_te_policies_compliance"
+  - name: "preferred_vendors"
+    data_dir: "data/business_travel/2_preferred_vendors"
+  - name: "risk_and_duty_of_care"
+    data_dir: "data/business_travel/3_risk_and_duty_of_care"
+  - name: "expense_workflows"
+    data_dir: "data/business_travel/4_expenses_workflows"
+
+  models:
+    embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+    chunk_size: 1000
+    chunk_overlap: 200
+
+  vector_db:
+    similarity_metric: "cosine"
+    hnsw_m: 16
+    hnsw_ef_construction: 100
+
+  retrieval:
+    top_k: 4
+
+  database:
+    type: "sqlite"
+    sqlite_path: "checkpoints.db"
+
+  langfuse:
+    enabled: true
+    host: "https://cloud.langfuse.com"
+    tag: "agent-system"
+
+ingestion_rules:
+  target_cities: ["madrid", "london", "tokyo", "new york", "valencia", "barcelona"]
+
+  # Clasificación general por carpetas
+  folder_mapping:
+    "1_te_policies_compliance": "compliance_rules"
+    "2_preferred_vendors": "inventory_catalogs"
+    "3_risk_and_duty_of_care": "security_protocols"
+    "4_expenses_workflows": "admin_workflows"
+
+  # Sub-clasificación específica por archivo (solo para los que importan mucho)
+  file_specific_tags:
+    "per_diem_limits_by_city": "financial_caps"
+    "sustainability_transport_rules": "transport_rules"
+    "executive_tier_exceptions": "executive_privileges"
+    "hotel_partners_directory": "inventory"
+
+# ==========================================
+# ENVIRONMENT-SPECIFIC SETTINGS
+# ==========================================
+
+local:
+  models:
+    model_id: "qwen2.5:7b"
+    base_url: "http://localhost:11434/v1"
+    provider: "openai"
+  database:
+    type: "sqlite"
+
+gemini:
+  models:
+    model_id: "gemini-2.5-flash-lite"
+    provider: "gemini"
+  database:
+    type: "postgres"

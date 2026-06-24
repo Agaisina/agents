@@ -1,0 +1,70 @@
+[project]
+name = "agent-course-final-assignment"
+version = "0.1.0"
+description = "Agent course final assignment package"
+authors = [ { name = "aisina" } ]
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+
+dependencies = [
+    "arxiv",
+    "ddgs",
+    "gradio[oauth]",
+    "huggingface_hub",
+    "langchain",
+    "langchain-chroma",
+    "langchain-community",
+    "langchain-core",
+    "langchain-google-genai",
+    "langchain-groq",
+    "langchain-huggingface",
+    "langchain-tavily",
+    "langchain-tools",
+    "langchain_experimental",
+    "langchain_openai",
+    "google-api-core",
+    "langgraph",
+    "numexpr",
+    "pandas",
+    "pgvector",
+    "pymupdf",
+    "python-dotenv",
+    "requests",
+    "sentence-transformers",
+    "wikipedia",
+    "dynaconf",
+    "pyprojroot",
+    "pypdf",
+    "psycopg-binary",
+    "docx2txt",
+    "tenacity",
+    "langgraph-checkpoint-postgres",
+    "langgraph-checkpoint-sqlite",
+    "pytesseract",
+    "langfuse>=3.0.0",
+    "pydantic>=2.0.0,<3.0.0",
+    "streamlit",
+    "supabase (<2.23.0)",
+    "aiosqlite (>=0.22.1,<0.23.0)",
+
+]
+
+[tool.poetry]
+packages = [{include = "src"}]
+
+[project.urls]
+"Homepage" = "https://example.com"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+mkdocs = "^1.6.1"
+mkdocs-material = "^9.7.6"
+mkdocstrings = {extras = ["python"], version = "^1.0.4"}
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
